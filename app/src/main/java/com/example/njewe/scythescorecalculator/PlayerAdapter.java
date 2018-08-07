@@ -6,19 +6,21 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class PlayerAdapter extends BaseAdapter{
 
     private final Context mContext;
-    private final String players[];
+    private final ArrayList<Player> players;
 
-    public PlayerAdapter(Context context, String players[]){
+    public PlayerAdapter(Context context, ArrayList<Player> players){
         this.mContext = context;
         this.players = players;
     }
 
     @Override
     public int getCount(){
-        return players.length;
+        return players.size();
     }
 
     @Override
