@@ -22,9 +22,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="204dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Players"
-        tools:text="No. of Players" />
+        android:hint="No. of Players"
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/button"
