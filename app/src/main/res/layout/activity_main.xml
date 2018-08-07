@@ -34,7 +34,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="228dp"
         android:onClick="sendMessage"
-        android:text="nxtBtnTxt"
+        android:text="Next"
         tools:text="Next" />
 
 </RelativeLayout>

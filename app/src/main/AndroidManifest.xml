@@ -17,7 +17,12 @@
         </activity>
         <activity
             android:name=".DisplayActivityMessage"
-            android:label="@string/title_activity_display_message"></activity>
+            android:label="@string/title_activity_display_message"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
     </application>
 
 </manifest>
