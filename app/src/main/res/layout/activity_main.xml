@@ -10,6 +10,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:padding="@dimen/padding_medium"
+        android:singleLine="true"
         android:text="@string/scytheCalculator"
         android:textSize="24sp"
         tools:context=".MainActivity" />
@@ -22,8 +23,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="204dp"
         android:ems="10"
+        android:singleLine="true"
         android:hint="No. of Players"
-        android:inputType="textPersonName" />
+        android:inputType="number" />
 
     <Button
         android:id="@+id/button"
