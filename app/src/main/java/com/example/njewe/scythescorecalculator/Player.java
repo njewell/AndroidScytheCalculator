@@ -1,5 +1,8 @@
 package com.example.njewe.scythescorecalculator;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Player {
 
     private  String name;
@@ -10,6 +13,7 @@ public class Player {
     private final int structure;
     private final int money;
     private final int total;
+    public ArrayList<Object> values;
 
     public Player(int playerNum){
         this.name = "Player " + playerNum;
@@ -20,6 +24,7 @@ public class Player {
         structure = 0;
         money = 0;
         total = 0;
+        values = new ArrayList<Object>(Arrays.asList(name, popularity, stars, territory, resources, structure, money, total));
     }
 
     public int getPopularity() {
