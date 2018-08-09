@@ -23,6 +23,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="204dp"
         android:ems="10"
+        android:maxLength="1"
         android:singleLine="true"
         android:hint="No. of Players"
         android:inputType="number" />

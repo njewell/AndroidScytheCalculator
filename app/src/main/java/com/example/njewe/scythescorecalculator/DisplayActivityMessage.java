@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.app.Activity;
+import android.text.InputFilter;
 import android.text.InputType;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -26,6 +27,7 @@ public class DisplayActivityMessage extends Activity {
     int numOfPlayers;
     int numOfCol;
     private final int numOfRow = 8;
+    private static final int MAX_LENGTH = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,7 @@ public class DisplayActivityMessage extends Activity {
                     text[count].setId(count);
                     text[count].setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
                     text[count].setInputType(InputType.TYPE_CLASS_NUMBER);
+                    text[count].setFilters(new InputFilter[] {new InputFilter.LengthFilter(MAX_LENGTH)});
                     text[count].setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI);
                     text[count].setHint(player.get(col-1).values.get(row).toString());
                 }
