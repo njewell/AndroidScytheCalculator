@@ -9,11 +9,13 @@ public class Player {
     private int popularity;
     private int stars;
     private int territory;
+    private int factoryStatus;
     private int resources;
     private int structure;
     private int money;
     private int total;
     private int id;
+    public static int FACTORY_TOGGLE = 0;
     public ArrayList<Object> values;
 
 
@@ -22,11 +24,12 @@ public class Player {
         popularity = 0;
         stars = 0;
         territory = 0;
+        factoryStatus = 0;
         resources = 0;
         structure = 0;
         money = 0;
         total = 0;
-        values = new ArrayList<Object>(Arrays.asList(name, popularity, stars, territory, resources, structure, money, total));
+        values = new ArrayList<Object>(Arrays.asList(name, popularity, stars, territory, factoryStatus, resources, structure, money, total));
     }
 
     public int getPopularity() {
@@ -47,6 +50,17 @@ public class Player {
 
     public int getTerritory() {
         return territory;
+    }
+
+    public int getFactoryStatus(){
+        return factoryStatus;
+    }
+
+    public void setFactoryStatus(int factoryStatus){
+        this.factoryStatus = factoryStatus;
+        if(factoryStatus ==1){
+            FACTORY_TOGGLE = 1;
+        }
     }
 
     public void setTerritory(int territory){
@@ -106,15 +120,18 @@ public class Player {
                 setTerritory(value);
                 break;
             case 4:
-                setResources(value);
+                setFactoryStatus(value);
                 break;
             case 5:
-                setStructure(value);
+                setResources(value);
                 break;
             case 6:
-                setMoney(value);
+                setStructure(value);
                 break;
             case 7:
+                setMoney(value);
+                break;
+            case 8:
                 setTotal(value);
                 break;
         }
@@ -122,6 +139,7 @@ public class Player {
 
     public void calculateScore() {
         total = 0;
+        int tempFactoryPts = 0;
         int resourceWorth = 0, territoryWorth = 0, starWorth = 0;
 
         if(popularity <= 6){
@@ -140,7 +158,10 @@ public class Player {
             resourceWorth = 3;
         }
 
-        total+= (starWorth * stars) + (territoryWorth * territory) + (resourceWorth * resources);
+        if(factoryStatus == 1){
+            tempFactoryPts+= 3;
+        }
+        total+= (starWorth * stars) + (territoryWorth * (territory + tempFactoryPts)) + (resourceWorth * resources);
         total+= structure;
         total+= money;
     }
