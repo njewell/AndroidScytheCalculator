@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.GridLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ public class DisplayActivityMessage extends Activity {
     private ArrayList<Player> player;
     private TextView[] text;
     private GridLayout grid;
+    private RelativeLayout layout;
     int numOfPlayers;
     int numOfCol;
     private final int numOfRow = 8;
@@ -40,6 +42,7 @@ public class DisplayActivityMessage extends Activity {
 
         createPlayerObjects();
 
+        //layout = findViewById(R.id.relative);
 
         grid = new GridLayout(DisplayActivityMessage.this);
         grid.setLayoutParams(new LayoutParams
@@ -82,6 +85,7 @@ public class DisplayActivityMessage extends Activity {
                 grid.addView(text[count]);
             }
         }
+        //layout.addView(grid);
         setContentView(grid);
     }
 

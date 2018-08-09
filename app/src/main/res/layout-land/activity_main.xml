@@ -19,13 +19,11 @@
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="204dp"
+        android:layout_centerInParent="true"
         android:ems="10"
-        android:singleLine="true"
         android:hint="No. of Players"
-        android:inputType="number" />
+        android:inputType="number"
+        android:singleLine="true" />
 
     <Button
         android:id="@+id/button"
@@ -33,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="228dp"
+        android:layout_marginBottom="51dp"
         android:onClick="sendMessage"
         android:text="Next"
         tools:text="Next" />

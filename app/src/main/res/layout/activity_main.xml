@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,10 +23,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="204dp"
         android:ems="10"
-        android:maxLength="1"
-        android:singleLine="true"
         android:hint="No. of Players"
-        android:inputType="number" />
+        android:inputType="number"
+        android:maxLength="1"
+        android:singleLine="true" />
 
     <Button
         android:id="@+id/button"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="228dp"
+        android:layout_marginBottom="197dp"
         android:onClick="sendMessage"
         android:text="Next"
         tools:text="Next" />
