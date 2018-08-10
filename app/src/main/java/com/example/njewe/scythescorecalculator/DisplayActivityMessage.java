@@ -4,10 +4,14 @@ import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
@@ -71,6 +75,7 @@ public class DisplayActivityMessage extends Activity {
                     text[count] = new TextView(DisplayActivityMessage.this);
                     text[count].setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
                     text[count].setTypeface(Typeface.DEFAULT_BOLD);
+                    addImage(text[count], row);
                     text[count].setText(category[row]);
                 } else if(row == (numOfRow - 1)) {
                     text[count] = new TextView(DisplayActivityMessage.this);
@@ -113,6 +118,67 @@ public class DisplayActivityMessage extends Activity {
                 text[count].setPadding(50, 25, 10, 25);
                 grid.addView(text[count]);
             }
+        }
+    }
+
+    private void addImage(TextView textView, int row) {
+        switch (row) {
+            case 0:
+                Drawable drP = getResources().getDrawable(R.drawable.player);
+                Bitmap bitmapP = ((BitmapDrawable) drP).getBitmap();
+// Scale it to 50 x 50
+                Drawable dP = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapP, 75, 100, true));
+                textView.setCompoundDrawablesWithIntrinsicBounds(dP, null, null, null);
+                break;
+            case 1:
+                Drawable dr = getResources().getDrawable(R.drawable.popularity);
+                Bitmap bitmap = ((BitmapDrawable) dr).getBitmap();
+// Scale it to 50 x 50
+                Drawable d = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 100, 100, true));
+                textView.setCompoundDrawablesWithIntrinsicBounds(d, null, null, null);
+                break;
+            case 2:
+                Drawable drS = getResources().getDrawable(R.drawable.stars);
+                Bitmap bitmapS = ((BitmapDrawable) drS).getBitmap();
+// Scale it to 50 x 50
+                Drawable dS = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapS, 100, 100, true));
+                textView.setCompoundDrawablesWithIntrinsicBounds(dS, null, null, null);
+                break;
+            case 3:
+                Drawable drT = getResources().getDrawable(R.drawable.territory);
+                Bitmap bitmapT = ((BitmapDrawable) drT).getBitmap();
+// Scale it to 50 x 50
+                Drawable dT = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapT, 85, 85, true));
+                textView.setCompoundDrawablesWithIntrinsicBounds(dT, null, null, null);
+                break;
+            case 4:
+                Drawable drF = getResources().getDrawable(R.drawable.factory);
+                Bitmap bitmapF = ((BitmapDrawable) drF).getBitmap();
+// Scale it to 50 x 50
+                Drawable dF = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapF, 100, 100, true));
+                textView.setCompoundDrawablesWithIntrinsicBounds(dF, null, null, null);
+                break;
+            case 5:
+                Drawable drR = getResources().getDrawable(R.drawable.resources);
+                Bitmap bitmapR = ((BitmapDrawable) drR).getBitmap();
+// Scale it to 50 x 50
+                Drawable dR = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapR, 110, 100, true));
+                textView.setCompoundDrawablesWithIntrinsicBounds(dR, null, null, null);
+                break;
+            case 6:
+                Drawable drSt = getResources().getDrawable(R.drawable.structure);
+                Bitmap bitmapSt = ((BitmapDrawable) drSt).getBitmap();
+// Scale it to 50 x 50
+                Drawable dSt = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapSt, 100, 100, true));
+                textView.setCompoundDrawablesWithIntrinsicBounds(dSt, null, null, null);
+                break;
+            case 7:
+                Drawable drM = getResources().getDrawable(R.drawable.money);
+                Bitmap bitmapM = ((BitmapDrawable) drM).getBitmap();
+// Scale it to 50 x 50
+                Drawable dM = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapM, 110, 110, true));
+                textView.setCompoundDrawablesWithIntrinsicBounds(dM, null, null, null);
+                break;
         }
     }
 
