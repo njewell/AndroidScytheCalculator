@@ -43,7 +43,6 @@ public class DisplayActivityMessage extends Activity {
     int numOfPlayers;
     int numOfCol;
     private int numOfRow;
-    private static final int MAX_LENGTH = 2;
     private static final int FACTORY_MAX_LENGTH = 1;
 
     @Override
@@ -69,51 +68,32 @@ public class DisplayActivityMessage extends Activity {
         text = new TextView[numOfRow * numOfCol];
         factoryIds = new ArrayList<Integer>();
         int count = 0;
+        final LayoutInflater inflater = (LayoutInflater)getSystemService (Context.LAYOUT_INFLATER_SERVICE);
         for (int row = 0; row < numOfRow; row++) {
             for (int col = 0; col < numOfCol; col++, count++) {
-                if (col == 0) {
+                if (col == 0 || row == (numOfRow - 1) || row == 0) {  //Player row, category column, total row
                     text[count] = new TextView(DisplayActivityMessage.this);
-                    text[count].setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-                    text[count].setTypeface(Typeface.DEFAULT_BOLD);
-                    addImage(text[count], row);
-                    text[count].setText(category[row]);
-                } else if(row == (numOfRow - 1)) {
-                    text[count] = new TextView(DisplayActivityMessage.this);
-                    text[count].setOnFocusChangeListener(textFocus);
+                    text[count] = (TextView)inflater.inflate(R.layout.total,null);
                     text[count].setId(count);
-                    text[count].setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-                    text[count].setTypeface(Typeface.DEFAULT_BOLD);
-                    text[count].setInputType(InputType.TYPE_CLASS_NUMBER);
-                    text[count].setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI);
-                    text[count].setHint(player.get(col-1).values.get(row).toString());
-                }else if(row == 0) {
-                    text[count] = new TextView(DisplayActivityMessage.this);
-                    text[count].setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-                    text[count].setTypeface(Typeface.DEFAULT_BOLD);
-                    text[count].setText(player.get(col-1).values.get(row).toString());
-                }else if (row == 4) {
-                    text[count] = new EditText(DisplayActivityMessage.this);
-                    text[count].setOnFocusChangeListener(textFocus);
-                    text[count].setInputType(InputType.TYPE_CLASS_NUMBER);
-                    text[count].setHintTextColor(Color.RED);
-                    text[count].setFilters(new InputFilter[]{ new InputFilterMinMax("0" , "1"), new InputFilter.LengthFilter(FACTORY_MAX_LENGTH)});
-                    text[count].setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI);
-                    text[count].setHint(player.get(col-1).values.get(row).toString());
-                    text[count].setId(count);
-                    factoryIds.add(count);
-                    text[count].setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-                    //text[count].addTextChangedListener(getTextWatcher((EditText)text[count]));
 
-                }else{
+                    if(col == 0){
+                        addImage(text[count], row);
+                        text[count].setText(category[row]);
+                    }else {
+                        text[count].setText(player.get(col-1).values.get(row).toString());
+                    }
+
+                }else{ //Edit Text Fields
                     text[count] = new EditText(DisplayActivityMessage.this);
+                    text[count] = (EditText)inflater.inflate(R.layout.edit_text, null);
+                    text[count].setHint(player.get(col-1).values.get(row).toString());
                     text[count].setOnFocusChangeListener(textFocus);
                     text[count].setId(count);
-                    text[count].setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-                    text[count].setInputType(InputType.TYPE_CLASS_NUMBER);
-                    text[count].setHintTextColor(Color.RED);
-                    text[count].setFilters(new InputFilter[] {new InputFilter.LengthFilter(MAX_LENGTH)});
-                    text[count].setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI);
-                    text[count].setHint(player.get(col-1).values.get(row).toString());
+                    if(row == 4){ //Factory row
+                        factoryIds.add(count);
+                        text[count].setFilters(new InputFilter[]{ new InputFilterMinMax("0" , "1"), new InputFilter.LengthFilter(FACTORY_MAX_LENGTH)});
+                        //text[count].addTextChangedListener(getTextWatcher((EditText)text[count]));
+                    }
                 }
                 text[count].setPadding(50, 25, 10, 25);
                 grid.addView(text[count]);
