@@ -1,4 +1,4 @@
-package com.example.njewe.scythescorecalculator;
+package ScytheScoreCalculator;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,36 +1,26 @@
-package com.example.njewe.scythescorecalculator;
+package ScytheScoreCalculator;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.app.Activity;
-import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.InputFilter;
-import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridLayout;
-import android.widget.RelativeLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.Toast;
+
+import GameScoreCalculator.R;
 
 import java.util.ArrayList;
 
-import static com.example.njewe.scythescorecalculator.Player.FACTORY_TOGGLE;
+import static ScytheScoreCalculator.Player.FACTORY_TOGGLE;
 
 public class DisplayActivityMessage extends Activity {
 
@@ -52,7 +42,7 @@ public class DisplayActivityMessage extends Activity {
 
 
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        String message = intent.getStringExtra(ScytheMainMenu.EXTRA_MESSAGE);
         numOfPlayers = Integer.parseInt(message);
         numOfCol = numOfPlayers + 1;
         numOfRow = category.length;

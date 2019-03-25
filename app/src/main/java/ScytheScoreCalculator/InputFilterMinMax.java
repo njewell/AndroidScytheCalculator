@@ -1,4 +1,4 @@
-package com.example.njewe.scythescorecalculator;
+package ScytheScoreCalculator;
 
 import android.text.InputFilter;
 import android.text.Spanned;

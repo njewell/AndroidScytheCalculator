@@ -1,4 +1,4 @@
-package com.example.njewe.scythescorecalculator;
+package ScytheScoreCalculator;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,19 +8,21 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity{
+import GameScoreCalculator.R;
+
+public class ScytheMainMenu extends AppCompatActivity{
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     private static final int MAX_LENGTH = 1;
     private EditText editText;
 
-    @Override
+
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R. layout.activity_main);
+        setContentView(R. layout.scythe_main_menu);
 
         editText = (EditText)findViewById(R.id.editText);
         editText.setInputType(InputType.TYPE_CLASS_NUMBER);
-        editText.setFilters(new InputFilter[]{ new InputFilterMinMax("1" , "5")});
+        editText.setFilters(new InputFilter[]{ new InputFilterMinMax("1" , "7")});
     }
 
     /** Called when the user taps the Send button */
