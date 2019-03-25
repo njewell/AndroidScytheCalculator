@@ -90,7 +90,7 @@ public class DisplayActivityMessage extends Activity {
             }
         }
     }
-
+    
     private void addImage(TextView textView, int row) {
         switch (row) {
             case 0:
